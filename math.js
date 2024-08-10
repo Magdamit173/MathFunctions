@@ -53,6 +53,10 @@ function fact(n) {
     return n * fact(n - 1)
 }
 
+function hyp(a, b) {
+    return sqrt(exp(a, 2) + exp(b, 2))
+}
+
 function sin(theta, mode, precise) {
 
     if (mode === undefined) return precision(Math.sin(deg_to_rad(theta)), precise)

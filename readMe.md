@@ -1,3 +1,3 @@
-### Math Functions: version 0.0.1
+### Math Functions: version 0.0.3
 - simplified function?
 
