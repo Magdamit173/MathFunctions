@@ -12,6 +12,11 @@ function help() {
     console.log(helptext)
 }
 
+function perc(n) {
+    // percentage
+    return precision(n/100)
+}
+
 function ln(n) {
     return precision(Math.log(n))
 }
