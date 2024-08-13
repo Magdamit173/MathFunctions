@@ -3,7 +3,7 @@ const e = Math.E
 const phi = (1 + Math.sqrt(5)) / 2
 
 function help() {
-    
+
     const helptext = `
     // mode = true; in radians
     // mode = false, undefined; in degrees
@@ -14,7 +14,7 @@ function help() {
 
 function perc(n) {
     // percentage
-    return precision(n/100)
+    return precision(n / 100)
 }
 
 function ln(n) {
@@ -38,7 +38,7 @@ function cbrt(n) {
 }
 
 function radical(base, _radical, exponent = 1) {
-    return precision(base ** (exponent/ _radical))
+    return precision(base ** (exponent / _radical))
 }
 
 function exp(n, exponent = 1) {
@@ -48,7 +48,12 @@ function exp(n, exponent = 1) {
 }
 
 function sigma(n) {
-    return (n**2 + n) / 2
+    return (n ** 2 + n) / 2
+}
+
+function sum(...n) {
+    const flattenedArray = n.flat(Infinity)
+    return flattenedArray.reduce((acc, num) => acc + (typeof num === 'number' ? num : 0), 0)
 }
 
 function fact(n) {
@@ -66,7 +71,7 @@ function sin(theta, mode, precise) {
 
     if (mode === undefined) return precision(Math.sin(deg_to_rad(theta)), precise)
     else if (mode == false) return precision(Math.sin(deg_to_rad(theta)), precise)
-    
+
     return precision(Math.sin(theta), precise)
 }
 
@@ -74,7 +79,7 @@ function cos(theta, mode, precise) {
 
     if (mode === undefined) return precision(Math.cos(deg_to_rad(theta)), precise)
     else if (mode == false) return precision(Math.cos(deg_to_rad(theta)), precise)
-    
+
     return precision(Math.cos(theta), precise)
 }
 
@@ -82,74 +87,74 @@ function tan(theta, mode, precise) {
 
     if (mode === undefined) return precision(Math.tan(deg_to_rad(theta)), precise)
     else if (mode == false) return precision(Math.tan(deg_to_rad(theta)), precise)
-    
+
     return precision(Math.tan(theta), precise)
 }
 
 function sec(theta, mode, precise) {
 
-    if (mode === undefined) return precision(1/Math.cos(deg_to_rad(theta)), precise)
-    else if (mode == false) return precision(1/Math.cos(deg_to_rad(theta)), precise)
-    
-    return precision(1/Math.cos(theta), precise)
+    if (mode === undefined) return precision(1 / Math.cos(deg_to_rad(theta)), precise)
+    else if (mode == false) return precision(1 / Math.cos(deg_to_rad(theta)), precise)
+
+    return precision(1 / Math.cos(theta), precise)
 }
 
 function csc(theta, mode, precise) {
 
-    if (mode === undefined) return precision(1/Math.sin(deg_to_rad(theta)), precise)
-    else if (mode == false) return precision(1/Math.sin(deg_to_rad(theta)), precise)
-    
-    return precision(1/Math.sin(theta), precise)
+    if (mode === undefined) return precision(1 / Math.sin(deg_to_rad(theta)), precise)
+    else if (mode == false) return precision(1 / Math.sin(deg_to_rad(theta)), precise)
+
+    return precision(1 / Math.sin(theta), precise)
 }
 
 function cot(theta, mode, precise) {
 
-    if (mode === undefined) return precision(1/Math.tan(deg_to_rad(theta)), precise)
-    else if (mode == false) return precision(1/Math.tan(deg_to_rad(theta)), precise)
-    
-    return precision(1/Math.tan(theta), precise)
+    if (mode === undefined) return precision(1 / Math.tan(deg_to_rad(theta)), precise)
+    else if (mode == false) return precision(1 / Math.tan(deg_to_rad(theta)), precise)
+
+    return precision(1 / Math.tan(theta), precise)
 }
 
 
 function arcsin(theta, mode, precise) {
     if (mode === undefined) return precision(rad_to_deg(Math.asin(theta)), precise)
     else if (mode == false) return precision(rad_to_deg(Math.asin(theta)), precise)
-    
+
     return precision(Math.asin(theta), precise)
 }
 
 function arccos(theta, mode, precise) {
     if (mode === undefined) return precision(rad_to_deg(Math.acos(theta)), precise)
     else if (mode == false) return precision(rad_to_deg(Math.acos(theta)), precise)
-    
+
     return precision(Math.acos(theta), precise)
 }
 function arctan(theta, mode, precise) {
     if (mode === undefined) return precision(rad_to_deg(Math.atan(theta)), precise)
     else if (mode == false) return precision(rad_to_deg(Math.atan(theta)), precise)
-    
+
     return precision(Math.atan(theta), precise)
 }
 
 function arcsec(theta, mode, precise) {
-    if (mode === undefined) return precision(rad_to_deg(Math.acos(1/theta)), precise)
-    else if (mode == false) return precision(rad_to_deg(Math.acos(1/theta)), precise)
-    
-    return precision(Math.acos(1/theta), precise)
+    if (mode === undefined) return precision(rad_to_deg(Math.acos(1 / theta)), precise)
+    else if (mode == false) return precision(rad_to_deg(Math.acos(1 / theta)), precise)
+
+    return precision(Math.acos(1 / theta), precise)
 }
 
 function arccsc(theta, mode, precise) {
-    if (mode === undefined) return precision(rad_to_deg(Math.asin(1/theta)), precise)
-    else if (mode == false) return precision(rad_to_deg(Math.asin(1/theta)), precise)
-    
-    return precision(Math.asin(1/theta), precise)
+    if (mode === undefined) return precision(rad_to_deg(Math.asin(1 / theta)), precise)
+    else if (mode == false) return precision(rad_to_deg(Math.asin(1 / theta)), precise)
+
+    return precision(Math.asin(1 / theta), precise)
 }
 
 function arccot(theta, mode, precise) {
-    if (mode === undefined) return precision(rad_to_deg(Math.atan(1/theta)), precise)
-    else if (mode == false) return precision(rad_to_deg(Math.atan(1/theta)), precise)
-    
-    return precision(Math.atan(1/theta), precise)
+    if (mode === undefined) return precision(rad_to_deg(Math.atan(1 / theta)), precise)
+    else if (mode == false) return precision(rad_to_deg(Math.atan(1 / theta)), precise)
+
+    return precision(Math.atan(1 / theta), precise)
 }
 
 
@@ -163,14 +168,14 @@ function precision(number, value = 12) {
     if (Math.abs(number) >= precisionFactor) return undefined
 
     number = Math.round((number * precisionFactor) + Number.EPSILON) / precisionFactor
-    return parseFloat(parseFloat(number).toPrecision(value)) 
+    return parseFloat(parseFloat(number).toPrecision(value))
 }
 
 function deg_to_rad(degree) {
-    return precision(Math.PI * degree/180, 30)
+    return precision(Math.PI * degree / 180, 30)
 }
 function rad_to_deg(radian) {
-    return precision(180 * radian/Math.PI, 30)
+    return precision(180 * radian / Math.PI, 30)
 }
 
 

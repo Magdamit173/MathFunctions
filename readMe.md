@@ -1,5 +1,5 @@
-### Math Functions: version 0.0.4
+### Math Functions: version 0.0.5
 - simplified function?
 
 ### udpate
-- added percentange as perc(n)
+- added sum(n, [n], etc)
