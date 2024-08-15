@@ -1,5 +1,5 @@
-### Math Functions: version 0.0.5
+### Math Functions: version 0.0.6
 - simplified function?
 
 ### udpate
-- added sum(n, [n], etc)
+- added pgrade_eq, std, var, mean, len, floor, ceil, and many more

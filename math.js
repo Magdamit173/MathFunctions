@@ -178,4 +178,75 @@ function rad_to_deg(radian) {
     return precision(180 * radian / Math.PI, 30)
 }
 
+function abs(n) {
+    return Math.abs(n)
+}
+
+function pgrade_eq(numericalGrade) {
+    if (numericalGrade < 1.00 || numericalGrade > 5.00) {
+        return "Invalid grade"
+    }
+
+    // Define the mapping of numerical grades to percentage ranges
+    const gradeRanges = [
+        { min: 1.00, max: 1.24, minPercent: 97, maxPercent: 100 },
+        { min: 1.25, max: 1.49, minPercent: 94, maxPercent: 96 },
+        { min: 1.50, max: 1.74, minPercent: 91, maxPercent: 93 },
+        { min: 1.75, max: 1.99, minPercent: 88, maxPercent: 90 },
+        { min: 2.00, max: 2.24, minPercent: 85, maxPercent: 87 },
+        { min: 2.25, max: 2.49, minPercent: 82, maxPercent: 84 },
+        { min: 2.50, max: 2.74, minPercent: 79, maxPercent: 81 },
+        { min: 2.75, max: 2.99, minPercent: 76, maxPercent: 78 },
+        { min: 3.00, max: 3.00, minPercent: 75, maxPercent: 75 },
+        { min: 5.00, max: 5.00, minPercent: 0, maxPercent: 74 }
+    ]
+
+    for (let range of gradeRanges) {
+        if (numericalGrade >= range.min && numericalGrade <= range.max) {
+            let percentage = range.minPercent + (range.maxPercent - range.minPercent) * ((numericalGrade - range.min) / (range.max - range.min))
+            return `${percentage.toFixed(2)}%`
+        }
+    }
+
+    return "Invalid grade"
+}
+
+function round(n, x) {
+    return Math.round(n)
+}
+
+function floor(n) {
+    return Math.floor(n)
+}
+function ceil(n) {
+    return Math.ceil(n)
+}
+
+function std(...n) {
+    const flatArray = n.flat(Infinity)
+    const average = flatArray.reduce((acc, val) => acc + val, 0) / flatArray.length
+    const variance = flatArray.reduce((acc, val) => acc + Math.abs((val - average) ** 2), 0) / flatArray.length
+    return Math.sqrt(variance)
+}
+
+
+function var_(...n) {
+    const flatArray = n.flat(Infinity)
+    const average = flatArray.reduce((acc, val) => acc + val, 0) / flatArray.length
+    const variance = flatArray.reduce((acc, val) => acc + Math.abs((val - average) ** 2), 0) / flatArray.length
+    return variance
+}
+
+function moe(std) {
+    return std/sqrt(len([10, 12, 23, 23, 16, 23, 21, 16]))
+}
+
+function len(n) {
+    if (Array.isArray(n)) return n.length
+}
+
+function mean(...n) {
+    const flattenedArray = n.flat(Infinity)
+    return flattenedArray.reduce((acc, num) => acc + (typeof num === 'number' ? num : 0), 0) / n.length
+}
 
