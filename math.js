@@ -1,6 +1,9 @@
 const pi = Math.PI
+const π = pi
 const e = Math.E
 const phi = (1 + Math.sqrt(5)) / 2
+const φ = phi
+const Φ = phi
 
 function help() {
 
