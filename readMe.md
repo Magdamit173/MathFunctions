@@ -1,5 +1,5 @@
-### Math Functions: version 0.0.7
+### Math Functions: version 0.0.8
 - simplified function?
 
 ### udpate
-- added some new signs/variable
+- added new units
