@@ -6,6 +6,8 @@ const φ = phi
 const Φ = phi
 
 const K = -273.15
+const C = 5/9
+const F = 9/5
 
 
 const mm = 0.001
@@ -48,6 +50,19 @@ function convert(value, from = 1, to = 1) {
     // default was meter
     return value * from/to
 }
+
+
+function temp_convert(value, from, to) {
+    if (from === C && to === F) return (value * F) + 32;
+    if (from === F && to === C) return (value - 32) * C;
+    if (from === C && to === K) return value - K;
+    if (from === K && to === C) return value + K;
+    if (from === F && to === K) return ((value - 32) * C) - K;
+    if (from === K && to === F) return ((value + K) * F) + 32;
+
+    throw new Error('Invalid conversion');
+}
+
 
 function quadratic(a, b, c, discriminant = 1) {
     discriminant

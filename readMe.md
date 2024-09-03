@@ -1,6 +1,5 @@
-### Math Functions: version 0.0.9
+### Math Functions: version 0.0.9.1
 - simplified function?
 
 ### udpate
-- added quadratic
-- alias exp as pow for better readability
+- added temperature conversion
