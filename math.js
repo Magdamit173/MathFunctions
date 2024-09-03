@@ -49,6 +49,27 @@ function convert(value, from = 1, to = 1) {
     return value * from/to
 }
 
+function quadratic(a, b, c, discriminant = 1) {
+    discriminant
+
+    const has_solution = pow(b, 2) - (4 * a * c)
+    if (has_solution < 0) return undefined
+
+    const x = (-b + ((discriminant == 0 ? 1 : sign(discriminant)) * sqrt(has_solution))) / (2 * a)
+    return x
+}
+
+function sign(n) {
+    switch (true) {
+        case (n > 0):
+            return 1;
+        case (n < 0):
+            return -1;
+        default:
+            return 0;
+    }
+}
+
 function perc(n) {
     // percentage
     return precision(n / 100)
@@ -79,6 +100,12 @@ function radical(base, _radical, exponent = 1) {
 }
 
 function exp(n, exponent = 1) {
+    //exponent 
+
+    return n ** exponent
+}
+
+function pow(n, exponent = 1) {
     //exponent 
 
     return n ** exponent
