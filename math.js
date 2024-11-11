@@ -6,8 +6,8 @@ const φ = phi
 const Φ = phi
 
 const K = -273.15
-const C = 5/9
-const F = 9/5
+const C = 5 / 9
+const F = 9 / 5
 
 
 const mm = 0.001
@@ -35,7 +35,6 @@ const ct = 0.2
 
 
 
-
 function help() {
 
     const helptext = `
@@ -46,9 +45,13 @@ function help() {
     console.log(helptext)
 }
 
+function length(a, b) {
+    return Math.abs(b - a)
+}
+
 function convert(value, from = 1, to = 1) {
     // default was meter
-    return value * from/to
+    return value * from / to
 }
 
 
@@ -143,6 +146,10 @@ function fact(n) {
 }
 
 function hyp(a, b) {
+    return sqrt(exp(a, 2) + exp(b, 2))
+}
+// rename of hyp, also hyp will replace the other words lol
+function PT(a, b) {
     return sqrt(exp(a, 2) + exp(b, 2))
 }
 
@@ -317,7 +324,7 @@ function var_(...n) {
 }
 
 function moe(std) {
-    return std/sqrt(len([10, 12, 23, 23, 16, 23, 21, 16]))
+    return std / sqrt(len([10, 12, 23, 23, 16, 23, 21, 16]))
 }
 
 function len(n) {
@@ -329,3 +336,14 @@ function mean(...n) {
     return flattenedArray.reduce((acc, num) => acc + (typeof num === 'number' ? num : 0), 0) / n.length
 }
 
+
+function power_series(x, n = 100) {
+    // where n became approximation
+    let approx_e = 1
+    
+    for (let i = 1; i <= n; i++) {
+        approx_e += pow(x, i) / fact(i)
+    }
+
+    return approx_e;
+}
